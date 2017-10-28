@@ -4,5 +4,7 @@ environment:
   my_variable:
     secure: C0tYhu0DA/cGOtDvGI2UOoj+e4UVUeUdvq3zc6+eS6U=
 
+build: false
+
 test_script:
   - ps: . .\build.ps1 -Task Deploy
