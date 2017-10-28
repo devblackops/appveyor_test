@@ -1,0 +1,4 @@
+os: WMF 5
+
+test_script:
+  - ps: . .\build.ps1 -Task Deploy
