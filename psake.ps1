@@ -6,6 +6,10 @@ task Test {
 }
 
 task Deploy -depends Test {
+
+    # List environment variables so we can see look for secrets
+    get-item env:*
+
     # Gate deployment
     if(
         $ENV:BHBuildSystem -ne 'Unknown' -and
