@@ -10,7 +10,7 @@ param(
     Import-Module $_
 }
 
-[void]Get-PackageProvider -Name Nuget -ForceBootstrap
+Get-PackageProvider -Name Nuget -ForceBootstrap | Out-Null
 Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
 
 Set-BuildEnvironment -Force
