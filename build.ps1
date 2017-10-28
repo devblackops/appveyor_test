@@ -10,7 +10,10 @@ param(
     Import-Module $_
 }
 
-#Set-BuildEnvironment -Force
+[void]Get-PackageProvider -Name Nuget -ForceBootstrap
+Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+
+Set-BuildEnvironment -Force
 
 Invoke-psake -buildFile "$PSScriptRoot\psake.ps1" -taskList $Task -nologo -Verbose:$VerbosePreference
 exit ( [int]( -not $psake.build_success ) )
